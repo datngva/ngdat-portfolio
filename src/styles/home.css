@@ -1,11 +1,11 @@
 .intro-text {
-  font-family: "EB Garamond", serif;
+  font-family: 'Noto Serif', serif;
   font-optical-sizing: auto;
   font-weight: 440;
   font-style: normal;
-  font-size: clamp(1.5rem, 1.0385rem + 2.4615vw, 3.5rem);
+  font-size: clamp(1.5rem, 1.0385rem + 2.4615vw, 2.5rem);
   line-height: 1.2;
-  color: #111;
+  color: var(--color-text);
   margin: 2em 0 1.5em 0;
   max-width: 1200px;
   padding-right: 0.5em;
@@ -23,20 +23,30 @@ section {
 }
 
 .section-link {
-  color: #111;
-  font-weight: 650;
+  color: var(--color-text);
+  font-weight: 400;
   text-decoration: none;
-  font-size: 0.875em;
-  transition: opacity 0.3s;
-  padding: 0.25em 0;
+  font-size: 1em;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, border-color 0.3s;
+  padding: 0.6em 1.6em;
+  border-radius: 999px;
+  display: inline-block;
+  border: 1px solid var(--button-outline-dark);
+  margin-top: 1em;
 }
 
 .section-link::before {
-  content: "-> ";
+  content: none;
 }
 
 .section-link:hover {
-  opacity: 0.5;
+  opacity: 1;
+  border-color: var(--button-outline-dark-focus);
+}
+
+.section-link:focus {
+  border-color: var(--button-outline-dark-focus);
+  outline: none;
 }
 
 .blog-list {
@@ -69,18 +79,18 @@ section {
 }
 
 .blog-list article:hover a p {
-  color: #444;
+  color: var(--color-text);
   transition: color 0.3s;
 }
 
 .blog-list a {
   text-decoration: none;
   display: block;
-  color: #444;
+  color: var(--color-text);
 }
 
 .blog-list a h3 {
-  color: #111;
+  color: var(--color-text);
 }
 
 .blog-list .description {

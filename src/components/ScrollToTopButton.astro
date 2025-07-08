@@ -4,7 +4,7 @@
     height="24px"
     viewBox="0 0 24 24"
     width="24px"
-    fill="#000000"
+    fill="currentColor"
   >
     <path d="M0 0h24v24H0V0z" fill="none"></path>
     <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
@@ -31,6 +31,7 @@
     opacity: 0;
     pointer-events: none;
     cursor: pointer;
+    color: var(--color-text);
   }
 
   @media only screen and (min-width: 500px) {
@@ -66,18 +67,20 @@
 <script>
   const scroll_to_top_button = document.getElementById("scroll-to-top");
 
-  scroll_to_top_button.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+  if (scroll_to_top_button) {
+    scroll_to_top_button.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
-  });
 
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 200) {
-      scroll_to_top_button.classList.add("enabled");
-    } else {
-      scroll_to_top_button.classList.remove("enabled");
-    }
-  });
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 200) {
+        scroll_to_top_button.classList.add("enabled");
+      } else {
+        scroll_to_top_button.classList.remove("enabled");
+      }
+    });
+  }
 </script>

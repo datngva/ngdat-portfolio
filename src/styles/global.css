@@ -3,6 +3,8 @@ Global styles are used by the site as a whole,
 and also by both the post, project and about page layouts.
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap&subset=vietnamese');
+
 /* eb-garamond-regular - latin */
 @font-face {
   font-display: swap;
@@ -44,11 +46,37 @@ and also by both the post, project and about page layouts.
   font-family: "Inter", sans-serif;
 }
 
+:root {
+  --color-bg: #fff;
+  --color-text: #111;
+  --color-header: #f8f8f8;
+  --color-border: #e0e0e0;
+  --color-link: #555;
+  --color-link-hover: #888;
+  --color-footer: #f8f8f8;
+  --button-outline-dark: rgba(17, 17, 17, .1);
+  --button-outline-dark-focus: rgba(17, 17, 17, .5);
+}
+[data-theme="dark"] {
+  --color-bg: #181a1b;
+  --color-text: #ddedff;
+  --color-header: #181a1b;
+  --color-border: #333;
+  --color-link: #bbb;
+  --color-link-hover: #fff;
+  --color-footer: #181a1b;
+  --button-outline-dark: rgba(221, 237, 255, .1);
+  --button-outline-dark-focus: rgba(221, 237, 255, .5);
+}
+html, body, .site-header, .site-footer, .main-menu, .blog-list, .image-grid, .footer-menu {
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
 body {
   margin: 0;
   line-height: 1.6;
   font-size: clamp(1rem, 0.9712rem + 0.1538vw, 1.125rem);
-  color: #111;
+  background: var(--color-bg);
+  color: var(--color-text);
 
   font-optical-sizing: auto;
   font-style: normal;
@@ -80,12 +108,13 @@ body {
 
 .site-header {
   margin: 0;
-  padding: 1em 5%;
-  font-size: 0.75em;
+  padding: 1.5rem 5%;
+  font-size: 0.75rem;
   /* font-size: clamp(0.75rem, 0.7067rem + 0.2308vw, 0.9375rem); */
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-weight: 500;
+  background: var(--color-bg);
 }
 
 nav {
@@ -95,7 +124,7 @@ nav {
 }
 
 nav a {
-  color: #555;
+  color: var(--color-link);
   display: inline-block;
   text-decoration: none;
   text-underline-offset: 0.5em;
@@ -105,6 +134,7 @@ nav a {
 
 nav a:hover {
   opacity: 0.4;
+  color: var(--color-link-hover);
 }
 
 nav a.active {
@@ -154,13 +184,13 @@ blockquote {
 }
 
 blockquote p {
-  font-family: "EB Garamond", serif;
+  font-family: 'Noto Serif', serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-size: clamp(1.5rem, 1.0385rem + 2.4615vw, 3.5rem);
   line-height: 1.2;
-  color: #111;
+  color: var(--color-text);
 }
 
 /* Images */
@@ -179,12 +209,12 @@ article img {
 /* Links */
 
 main a {
-  color: #777;
+  color: var(--color-link);
   transition: color 0.3s;
 }
 
 main a:hover {
-  color: #bbb;
+  color: var(--color-link-hover);
 }
 
 /* Custom Horiontal Rule */
@@ -196,6 +226,7 @@ hr {
   border: 0;
   text-align: center;
   overflow: visible;
+  border-color: var(--color-border);
 }
 
 hr:before {
@@ -306,6 +337,8 @@ h5 {
 .site-footer {
   padding: 6em 1em;
   text-align: center;
+  background: var(--color-footer);
+  color: var(--color-text);
 }
 
 .footer-menu {
@@ -318,12 +351,12 @@ h5 {
 
 .footer-menu a {
   display: inline-block;
-  color: #444;
+  color: var(--color-text);
   text-decoration: none;
   text-underline-offset: 0.5em;
   padding: 0.5em;
   margin: 0 0.25em;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, color 0.3s;
 }
 
 .footer-menu a.active {
@@ -332,6 +365,7 @@ h5 {
 
 .footer-menu a:hover {
   opacity: 0.3;
+  color: var(--color-link-hover);
 }
 
 .social-links {
@@ -344,18 +378,19 @@ h5 {
 .social-links a {
   width: 38px;
   height: 38px;
-  transition: transform 0.3s;
+  transition: transform 0.3s, color 0.3s;
   border-radius: 50%;
-  /* background: #eee; */
+  color: var(--color-text);
 }
 
 .social-links a:hover,
 .social-links a:focus {
   transform: scale(1.2);
+  color: var(--color-link-hover);
 }
 
 .social-links svg {
-  fill: #111;
+  fill: currentColor;
   width: 100%;
   height: 100%;
   padding: 0.4em;
@@ -367,15 +402,48 @@ h5 {
 }
 
 .copyright-notice a {
-  color: #555;
+  color: var(--color-link);
   transition: opacity 0.3s;
 }
 
 .copyright-notice a:hover {
   opacity: 0.5;
+  color: var(--color-link-hover);
 }
 
 /* .iframe-embed iframe {
   aspect-ratio: 16 / 9;
   width: 100%;
 } */
+
+.site-title {
+  font-size: 1.5em;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.main-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.main-menu a {
+  font-size: 1.2em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  color: var(--color-text);
+}
+
+@media (max-width: 600px) {
+  .site-title {
+    font-size: 1.3em;
+  }
+  .main-menu a {
+    font-size: 1em;
+  }
+}
