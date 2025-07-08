@@ -4,6 +4,7 @@ and also by both the post, project and about page layouts.
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap&subset=vietnamese');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
 /* eb-garamond-regular - latin */
 @font-face {
@@ -49,35 +50,34 @@ and also by both the post, project and about page layouts.
 :root {
   --color-bg: #fff;
   --color-text: #111;
-  --color-header: #f8f8f8;
   --color-border: #e0e0e0;
   --color-link: #555;
   --color-link-hover: #888;
-  --color-footer: #f8f8f8;
   --button-outline-dark: rgba(17, 17, 17, .1);
   --button-outline-dark-focus: rgba(17, 17, 17, .5);
+  --font-playfair: 'Playfair Display', serif;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair) !important;
 }
 
 /* Default light theme (fallback) */
 html:not([data-theme]) {
   --color-bg: #fff;
   --color-text: #111;
-  --color-header: #f8f8f8;
   --color-border: #e0e0e0;
   --color-link: #555;
   --color-link-hover: #888;
-  --color-footer: #f8f8f8;
   --button-outline-dark: rgba(17, 17, 17, .1);
   --button-outline-dark-focus: rgba(17, 17, 17, .5);
 }
 [data-theme="dark"] {
   --color-bg: #181a1b;
   --color-text: #ddedff;
-  --color-header: #181a1b;
   --color-border: #333;
   --color-link: #bbb;
   --color-link-hover: #fff;
-  --color-footer: #181a1b;
   --button-outline-dark: rgba(221, 237, 255, .1);
   --button-outline-dark-focus: rgba(221, 237, 255, .5);
 }
@@ -146,11 +146,11 @@ body {
 .site-header {
   margin: 0;
   padding: 1.5rem 5%;
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
   /* font-size: clamp(0.75rem, 0.7067rem + 0.2308vw, 0.9375rem); */
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  font-weight: 500;
+  font-weight: 400;
   background: var(--color-bg);
 }
 
@@ -268,9 +268,9 @@ hr {
 
 hr:before {
   font-size: 1em;
-  line-height: 1em;
+  line-height: 2em;
   letter-spacing: 0.6em;
-  content: "* * *";
+  /* content: "🤟🏻🤟🏻🤟🏻"; */
   display: inline-block;
 }
 
@@ -374,7 +374,7 @@ h5 {
 .site-footer {
   padding: 6em 1em;
   text-align: center;
-  background: var(--color-footer);
+  background: var(--color-bg);
   color: var(--color-text);
 }
 
@@ -405,7 +405,7 @@ h5 {
   color: var(--color-link-hover);
 }
 
-.social-links {
+/* .social-links {
   display: flex;
   justify-content: center;
   gap: 1em;
@@ -432,7 +432,7 @@ h5 {
   height: 100%;
   padding: 0.4em;
   border-radius: 50%;
-}
+} */
 
 .copyright-notice {
   font-size: 0.875em;
@@ -457,7 +457,7 @@ h5 {
   font-size: 1.5em;
   font-weight: 400;
   letter-spacing: 2px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: var(--color-text);
   text-decoration: none;
 }
@@ -483,4 +483,50 @@ h5 {
   .main-menu a {
     font-size: 1em;
   }
+}
+
+.more-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5em;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .more-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .more-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+  }
+}
+
+.footer-connect {
+  text-align: center;
+  margin-bottom: 2em;
+}
+.footer-connect h2 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.footer-connect > div {
+  margin: 0.5em 0 0.5em 0;
+  font-size: 0.8em;
+}
+.footer-connect-email {
+  color: var(--color-link);
+  font-size: 0.8em;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, text-decoration 0.2s;
+  padding: 0 0.2em;
+}
+.footer-connect-email:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
 }

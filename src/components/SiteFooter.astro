@@ -3,14 +3,26 @@ import HeaderLink from "./HeaderLink.astro";
 const today = new Date();
 ---
 
+<hr style="margin: 0 0 2em 0; border: none; border-top: 1px solid var(--color-border); width: 100%;" />
+
 <footer class="site-footer">
-  <div class="footer-menu">
-    <HeaderLink href="/projects">Projects</HeaderLink>
-    <HeaderLink href="/blog">Blog</HeaderLink>
-    <HeaderLink href="/about">About</HeaderLink>
+
+  <div class="footer-connect">
+    <h2 class="font-playfair">Liên hệ</h2>
+    <div>Cảm ơn bạn đã ghé thăm! Nếu bạn có bất kỳ câu hỏi hoặc ý tưởng nào, vui lòng liên hệ với tôi <span aria-label='smile' role='img'>😀</span></div>
+    <a href="mailto:datngva.work@gmail.com" class="footer-connect-email">datngva.work@gmail.com</a>
   </div>
 
-  <div class="social-links">
+
+  <!-- Footer Stuff 
+  /* 
+    <div class="footer-menu">
+    <HeaderLink href="/projects">Dự án</HeaderLink>
+    <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="/about">Về tôi</HeaderLink>
+  </div>
+  
+    <div class="social-links">
     <a href="### Your Instagram Link Here">
       <span class="sr-only">Instagram</span>
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -26,8 +38,8 @@ const today = new Date();
       </svg>
     </a>
 
-    <a href="### Your Behance Link Here">
-      <span class="sr-only">Behance</span>
+    <a href="mailto:datngva.work@gmail.com">
+      <span class="sr-only">Email</span>
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path
           d="m10,11.33c1.14-.54,1.73-1.37,1.73-2.64,0-2.52-1.88-3.14-4.05-3.14H1.71v12.67h6.14c2.3,0,4.46-1.1,4.46-3.68,0-1.59-.75-2.77-2.31-3.21h0Zm-5.51-3.62h2.61c1,0,1.91.28,1.91,1.45,0,1.08-.7,1.51-1.7,1.51h-2.82s0-2.96,0-2.96Zm2.98,8.35h-2.98v-3.49h3.03c1.23,0,2,.51,2,1.81s-.93,1.68-2.06,1.68h0Zm12.81-8.6h-5.14v-1.25h5.14v1.25h0Zm2.01,6.3c0-2.71-1.59-4.98-4.46-4.98s-4.69,2.1-4.69,4.85,1.8,4.81,4.69,4.81c2.19,0,3.61-.99,4.29-3.08h-2.22c-.24.78-1.23,1.2-1.99,1.2-1.48,0-2.25-.86-2.25-2.33h6.62c.01-.15.02-.31.02-.47Zm-6.63-1.12c.08-1.2.88-1.96,2.09-1.96s1.9.74,2.01,1.96h-4.1Z"
@@ -35,7 +47,7 @@ const today = new Date();
       </svg>
     </a>
 
-    <a href="### Your LinkedIn Link Here">
+    <a href="https://www.linkedin.com/in/imdatnguyen/">
       <span class="sr-only">LinkedIn</span>
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -43,10 +55,10 @@ const today = new Date();
         ></path>
       </svg>
     </a>
-  </div>
+  </div>-->
 
   <p class="copyright-notice">
     &copy; {today.getFullYear()}
-    <a href="https://henryegloff.com/">Henry Egloff</a>
+    <a href="https://ngdat.com/">Dat Nguyen</a>
   </p>
 </footer>
