@@ -5,6 +5,7 @@ and also by both the post, project and about page layouts.
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap&subset=vietnamese');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
 /* eb-garamond-regular - latin */
 @font-face {
@@ -44,7 +45,7 @@ and also by both the post, project and about page layouts.
 
 * {
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-mono);
 }
 
 :root {
@@ -56,6 +57,7 @@ and also by both the post, project and about page layouts.
   --button-outline-dark: rgba(17, 17, 17, .1);
   --button-outline-dark-focus: rgba(17, 17, 17, .5);
   --font-playfair: 'Playfair Display', serif;
+  --font-mono: 'JetBrains Mono', 'Fira Mono', 'Consolas', monospace;
 }
 
 .font-playfair {
@@ -121,6 +123,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
+  font-family: 'Inter', Arial, sans-serif !important;
 }
 
 .standard-content-width {
@@ -529,4 +532,105 @@ h5 {
 .footer-connect-email:hover {
   color: var(--color-link-hover);
   text-decoration: underline;
+}
+
+.footer-custom {
+  background: var(--color-bg);
+  padding: 3em 0 2em 0;
+  color: var(--color-text);
+  font-family: 'JetBrains Mono', 'Fira Mono', 'Consolas', monospace;
+  border-top: 1px solid var(--color-border);
+}
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2em;
+}
+.footer-col {
+  flex: 1 1 0;
+  min-width: 220px;
+}
+.footer-label {
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-link);
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.footer-email-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+.footer-email-text {
+  font-size: 1.1em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background: var(--color-bg);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  color: var(--color-text);
+  font-family: inherit;
+  border: 1px solid var(--color-border);
+}
+.footer-copy-btn {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.3em 0.5em;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+  display: flex;
+  align-items: center;
+  color: var(--color-link);
+}
+.footer-copy-btn:hover {
+  background: var(--color-border);
+}
+.footer-socials ul {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0 0 0;
+}
+.footer-socials li {
+  margin-bottom: 0.5em;
+}
+.footer-socials a {
+  color: var(--color-link);
+  text-decoration: underline;
+  font-size: 1em;
+  transition: color 0.2s;
+}
+.footer-socials a:hover {
+  color: var(--color-link-hover);
+}
+.footer-copyright {
+  font-size: 1em;
+  color: var(--color-text);
+  opacity: 0.9;
+  margin-top: 0.5em;
+}
+.footer-bottom-bar {
+  background: var(--color-border);
+  color: var(--color-text);
+  text-align: center;
+  padding: 1.2em 0 1.1em 0;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+}
+@media (max-width: 900px) {
+  .footer-columns {
+    flex-direction: column;
+    gap: 2em;
+    align-items: stretch;
+  }
+  .footer-col {
+    min-width: 0;
+  }
 }

@@ -38,9 +38,23 @@ const sortedPosts = posts
     <h1 class="sr-only">{title}</h1>
     <p class="intro-text">{description}</p>
     <section>
-      <h2>Dự án nổi bật</h2>
-      <ImageGrid posts={sortedProjects} />
-      <p><a href="./projects" class="section-link">Xem tất cả dự án</a></p>
+      <h2>case studies</h2>
+      <div class="project-masonry">
+        {sortedProjects.slice(0, 3).map((project) => (
+          <div class="project-masonry-card" key={project.slug}>
+            <div class="project-image-wrapper">
+              <img src={project.data.featuredImage.src} alt={project.data.title} />
+              <a href={`/projects/${project.slug}/`} class="project-overlay-btn">CLICK TO VIEW</a>
+            </div>
+            <div class="project-meta">
+              <div class="project-year">{project.data.pubDate ? project.data.pubDate.getFullYear() : ""} &rarr;</div>
+            </div>
+            <div class="project-title">{project.data.title}</div>
+            <div class="project-desc">{project.data.description}</div>
+          </div>
+        ))}
+      </div>
+      <p><a href="./projects" class="section-link">View all Case Studies</a></p>
     </section>
 
     <section>
