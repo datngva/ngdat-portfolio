@@ -57,6 +57,19 @@ and also by both the post, project and about page layouts.
   --button-outline-dark: rgba(17, 17, 17, .1);
   --button-outline-dark-focus: rgba(17, 17, 17, .5);
 }
+
+/* Default light theme (fallback) */
+html:not([data-theme]) {
+  --color-bg: #fff;
+  --color-text: #111;
+  --color-header: #f8f8f8;
+  --color-border: #e0e0e0;
+  --color-link: #555;
+  --color-link-hover: #888;
+  --color-footer: #f8f8f8;
+  --button-outline-dark: rgba(17, 17, 17, .1);
+  --button-outline-dark-focus: rgba(17, 17, 17, .5);
+}
 [data-theme="dark"] {
   --color-bg: #181a1b;
   --color-text: #ddedff;
@@ -68,15 +81,39 @@ and also by both the post, project and about page layouts.
   --button-outline-dark: rgba(221, 237, 255, .1);
   --button-outline-dark-focus: rgba(221, 237, 255, .5);
 }
-html, body, .site-header, .site-footer, .main-menu, .blog-list, .image-grid, .footer-menu {
-  transition: background 0.3s, color 0.3s, border-color 0.3s;
+/* Prevent flash of unstyled content */
+html {
+  transition: none !important;
+}
+
+/* Smooth transitions for theme switching - only after initial load */
+html.theme-ready, body.theme-ready, .site-header.theme-ready, .site-footer.theme-ready, .main-menu.theme-ready, .blog-list.theme-ready, .image-grid.theme-ready, .footer-menu.theme-ready {
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Ensure theme is applied immediately */
+html[data-theme] {
+  transition: none !important;
+}
+
+/* Hide content until theme is ready */
+.theme-loading {
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.theme-ready {
+  opacity: 1;
 }
 body {
   margin: 0;
   line-height: 1.6;
   font-size: clamp(1rem, 0.9712rem + 0.1538vw, 1.125rem);
-  background: var(--color-bg);
+  background-color: var(--color-bg);
   color: var(--color-text);
+  min-height: 100vh;
+  /* Prevent any flash during theme switching */
+  will-change: background-color, color;
 
   font-optical-sizing: auto;
   font-style: normal;

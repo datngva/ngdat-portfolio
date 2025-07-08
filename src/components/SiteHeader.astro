@@ -23,13 +23,35 @@ import { SITE_TITLE } from "../consts";
 </header>
 
 <script>
+  // Add theme-ready class after initial load
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add theme-ready class to enable smooth transitions
+    document.documentElement.classList.add('theme-ready');
+    document.body.classList.add('theme-ready');
+    
+    // Add theme-ready class to all elements that need transitions
+    const elements = document.querySelectorAll('.site-header, .site-footer, .main-menu, .blog-list, .image-grid, .footer-menu');
+    elements.forEach(el => el.classList.add('theme-ready'));
+  });
+
   const btn = document.getElementById('theme-toggle');
   const iconSun = document.getElementById('icon-sun');
   const iconMoon = document.getElementById('icon-moon');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const saved = localStorage.getItem('theme');
+  
   function setTheme(mode) {
+    // Temporarily remove theme-ready class to disable transitions
+    document.documentElement.classList.remove('theme-ready');
+    document.body.classList.remove('theme-ready');
+    
     document.documentElement.setAttribute('data-theme', mode);
+    
+    // Force a reflow to ensure the theme is applied
+    document.documentElement.offsetHeight;
+    
+    // Re-add theme-ready class to enable transitions
+    document.documentElement.classList.add('theme-ready');
+    document.body.classList.add('theme-ready');
+    
     if (iconSun && iconMoon) {
       if (mode === 'dark') {
         iconSun.style.display = 'none';
@@ -40,7 +62,7 @@ import { SITE_TITLE } from "../consts";
       }
     }
   }
-  setTheme(saved || (prefersDark ? 'dark' : 'light'));
+  
   if (btn) {
     btn.onclick = () => {
       const current = document.documentElement.getAttribute('data-theme');
