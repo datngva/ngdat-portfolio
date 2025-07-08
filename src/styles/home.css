@@ -63,7 +63,7 @@ section {
 }
 
 .blog-list article:hover {
-  border-color: rgba(0, 0, 0, 0.3);
+  border-color: var(--color-border);
 }
 
 .blog-list h3 {
@@ -71,11 +71,12 @@ section {
   font-size: 1.25em;
   line-height: 1.4;
   display: inline;
-  transition: border 0.3s;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
 }
 
 .blog-list article:hover a h3 {
-  border-bottom: 2px solid rgba(0, 0, 0, 1);
+  border-bottom-color: var(--color-text);
 }
 
 .blog-list article:hover a p {

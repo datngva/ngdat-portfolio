@@ -1,14 +1,25 @@
 ---
-title: 'Project Six'
-description: 'Eiusmod magna aliqua.'
-pubDate: 'Jul 07 2023'
+title: 'Feed Redesign'
+description: 'Improving how users find and discover content on The Athletic’s mobile apps — while also unlocking new capabilities for our newsroom and content programming team.'
+pubDate: 'Jul 07 2025'
 featuredImage: '@assets/placeholder-astro.webp'
 ---
 
+<div style="display: flex; justify-content: space-between; margin: 2em 0 1.5em 0; flex-wrap: wrap; gap: 2em; font-size: 1.05em; font-family: Inter, sans-serif; color: var(--color-text);">
+  <div><div style="opacity:0.7;">Role</div><strong>Lead Designer</strong></div>
+  <div><div style="opacity:0.7;">Employer</div><strong>The Athletic</strong></div>
+  <div><div style="opacity:0.7;">Platforms</div><strong>iOS</strong></div>
+  <div><div style="opacity:0.7;">Areas</div><strong>Strategy, Design</strong></div>
+</div>
+
+<div style="margin-bottom: 2em;">
+  {frontmatter.description}
+</div>
+
 import ProjectImage from "@components/ProjectImage.astro";
 import image1 from "@assets/placeholder-astro.svg";
+import MoreProjects from "@components/MoreProjects.astro";
 
+<ProjectImage path={image1} alt="Feed Redesign"/>
 
-<ProjectImage path={image1} alt="###"/>
-
-This page includes an example image as an SVG file (above).
+<MoreProjects currentSlug="project-six" />

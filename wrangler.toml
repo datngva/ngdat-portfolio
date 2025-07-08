@@ -1,0 +1,16 @@
+name = "ngdat-portfolio"
+main = "workers-site.js"
+compatibility_date = "2024-05-01"
+workers_dev = false
+account_id = "1db4c28eb31dd1b206f8242433101a5b"
+
+[site]
+bucket = "./dist"
+
+[[routes]]
+pattern = "ngdat.com/*"
+zone_name = "ngdat.com"
+
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = true
