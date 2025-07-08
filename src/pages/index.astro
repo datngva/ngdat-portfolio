@@ -57,24 +57,6 @@ const sortedPosts = posts
       <p><a href="./projects" class="section-link">View all Case Studies</a></p>
     </section>
 
-    <section>
-      <h2>Bài viết mới nhất</h2>
-      <div class="blog-list">
-        {
-          sortedPosts.map((post) => (
-            <article>
-              <a href={`/blog/${post.slug}/`}>
-                <h3 class="title">{post.data.title}</h3>
-                <p class="date">
-                  <FormattedDate date={post.data.pubDate} />
-                </p>
-                <p class="description">{post.data.description}</p>
-              </a>
-            </article>
-          ))
-        }
-      </div>
-      <p><a href="./blog" class="section-link">Xem tất cả bài viết</a></p>
-    </section>
+
   </main>
 </Layout>
